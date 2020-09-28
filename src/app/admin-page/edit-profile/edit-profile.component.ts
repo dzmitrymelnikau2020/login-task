@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { UserService } from '../../services';
-import { AlertService } from '../../services';
 import { User } from '../../models/user';
 
 @Component({
@@ -21,12 +20,14 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    private alertService: AlertService
   ) {
-    this.person = userService.currentUserValue;
   }
 
   ngOnInit(): void {
+    this.userService.currentUserValue.subscribe(
+      data => this.person = data
+    );
+
     this.editProfileForm = new FormGroup({
       firstName: new FormControl(
         this.person.firstName,
@@ -58,9 +59,6 @@ export class EditProfileComponent implements OnInit {
   handleFormSubmit = (): void => {
     this.submitted = true;
 
-    // reset alerts on submit
-    this.alertService.clear();
-
     // stop here if form is invalid
     if (this.editProfileForm.invalid) {
       return;
@@ -73,7 +71,7 @@ export class EditProfileComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          this.alertService.error(error);
+          console.error(error);
         });
   }
 

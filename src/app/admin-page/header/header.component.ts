@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService, UserService } from '../../services';
+import { AuthenticationService } from '../../services';
 import { User } from '../../models/user';
 
 @Component({
@@ -13,13 +13,11 @@ export class HeaderComponent {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private userService: UserService
+    private authenticationService: AuthenticationService
   ) { }
 
   redirectToLoginPage(): void {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
-
 }

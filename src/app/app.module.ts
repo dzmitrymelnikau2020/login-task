@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { AlertComponent } from './common-components/alert/alert.component';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { LoginModule } from './login/login.module';
 import { Page404Component } from './common-components/page404/page404.component';
@@ -15,7 +14,6 @@ import { Page404Component } from './common-components/page404/page404.component'
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponent,
     Page404Component,
   ],
   imports: [

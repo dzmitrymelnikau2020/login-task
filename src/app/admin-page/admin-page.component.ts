@@ -1,6 +1,5 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services';
-import { isEqual } from 'lodash';
 
 import { User } from '../models/user';
 
@@ -9,24 +8,18 @@ import { User } from '../models/user';
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss']
 })
-export class AdminPageComponent implements OnInit, DoCheck {
+export class AdminPageComponent implements OnInit {
 
   profile: User;
 
   constructor(
     private userService: UserService,
   ) {
-
   }
 
   ngOnInit(): void {
-    this.profile = this.userService.currentUserValue;
+    this.userService.currentUserValue.subscribe(
+      data => this.profile = data
+    );
   }
-
-  ngDoCheck(): void {
-    if (!isEqual(this.profile, this.userService.currentUserValue)) {
-      this.profile = this.userService.currentUserValue;
-    }
-  }
-
 }

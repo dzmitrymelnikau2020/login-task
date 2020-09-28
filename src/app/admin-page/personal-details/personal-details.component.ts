@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { User } from '../../models/user';
-import { UserService } from '../../services';
-import { Router } from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import {User} from '../../models/user';
+import {UserService} from '../../services';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-personal-details',
@@ -18,7 +18,9 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profile = this.userService.currentUserValue;
+    this.userService.getUser(this.userService.getUserFromLocalStorage().id).subscribe(
+      data => this.profile = data
+    );
   }
 
   redirectToEditPage(): void{
