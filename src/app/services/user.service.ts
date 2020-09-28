@@ -15,15 +15,11 @@ export class UserService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+  public get currentUserValue(): Observable<any> {
+    return this.currentUserSubject.asObservable();
   }
 
-  public set currentUserValue(user: User) {
-    this.currentUserSubject.next(user);
-  }
-
-  public getUser(): User {
+  public getUserFromLocalStorage(): User {
     return JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -32,7 +28,15 @@ export class UserService {
       // tslint:disable-next-line:no-shadowed-variable
       .pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserValue = {...user};
+        this.currentUserSubject.next(user);
+      }));
+  }
+
+  getUser(id: string): Observable<any> {
+    return this.http.get<User>(`http://localhost:3000/api/v1/user/${id}`)
+      .pipe(map(user => {
+        this.currentUserSubject.next(user);
+        return user;
       }));
   }
 }
