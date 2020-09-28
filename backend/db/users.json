@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "password": "1234567",
+    "firstName": "Serg",
+    "lastName": "Ivanov",
+    "email": "ivan@mail.com",
+    "phoneNumber": "+33655557904",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDEyNDE3MjksImV4cCI6MTYwOTg4MTcyOX0.7onnRGpt7kpxXVlWCEecuxGzWAbUyvJCnS1JEQuM5Rs"
+  },
+  {
+    "id": "2",
+    "password": "1234567",
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "email": "ivan@mail.com",
+    "phoneNumber": "+33655557904"
+  },
+  {
+    "id": "3",
+    "password": "12345678",
+    "firstName": "Sergei",
+    "lastName": "Sergeev",
+    "email": "sergey@mail.com",
+    "phoneNumber": "+491555558294"
+  }
+]

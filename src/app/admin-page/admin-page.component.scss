@@ -1,0 +1,49 @@
+.admin-page {
+  .personal-info {
+    display: flex;
+    margin: 50px 0;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__photo {
+      display: flex;
+      margin-right: 20px;
+
+      img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+    }
+    &__change-img-link {
+      .greeting {
+        margin: 0;
+      }
+      .change-picture {
+        display: flex;
+        align-items: center;
+        color: #0a6bd1;
+        h4 {
+          margin: 0;
+        }
+        svg {
+          fill: #0a6bd1;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .navbar {
+    padding: 0;
+
+    a.nav-link {
+      color: #649acc;
+      font-size: 16px;
+      padding: 10px;
+    }
+    .tab-active {
+      border-bottom: 4px solid gray;
+      color: gray;
+    }
+  }
+}

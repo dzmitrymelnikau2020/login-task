@@ -1,0 +1,69 @@
+<section>
+  <form  [formGroup]="editProfileForm"  (ngSubmit)="handleFormSubmit()" class="personal-details__form">
+    <div class="form-group">
+      <label for="firstName">First name</label>
+      <input
+        formControlName="firstName"
+        type="text"
+        id="firstName"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+      />
+      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <div *ngIf="f.firstName.errors.required">First name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Second name</label>
+      <input
+        formControlName="lastName"
+        type="text"
+        id="lastName"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+      />
+      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+        <div *ngIf="f.lastName.errors.required">Last name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstName">Emailaddress</label>
+      <input
+        formControlName="email"
+        type="email"
+        id="email"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+      />
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email not valid</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        formControlName="phoneNumber"
+        type="text"
+        id="phoneNumber"
+        class="form-control"
+        ng2TelInput
+        (keypress)="numericOnly($event)"
+        [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+      />
+      <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+        <div *ngIf="f.phoneNumber.errors.required">Phone is required</div>
+        <div *ngIf="f.phone.errors.minlength">Phone must be at least 10 numbers.</div>
+      </div>
+    </div>
+    <div class="button-group">
+      <button class="btn btn-primary" [disabled]="editProfileForm.pristine">
+        Update
+      </button>
+      <button class="btn btn-danger" (click)="redirectToAdminPage()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+</section>

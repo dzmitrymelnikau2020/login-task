@@ -1,0 +1,35 @@
+<app-header [account]="profile"></app-header>
+<section class="container">
+  <div class="admin-page row justify-content-start">
+    <div class="col">
+      <section class="personal-info">
+        <div class="personal-info__photo">
+          <img src="./../../assets/profile_img/man-icon.png" width="100px" height="100px" alt="nick image">
+        </div>
+        <div class="personal-info__change-img-link">
+          <h2 class="greeting">Welcome, {{profile.firstName}} {{profile.lastName}}</h2>
+          <div class="change-picture">
+            <h4>Change profile picture</h4>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M15 12V6a1 1 0 0 0-1-1h-1.172a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 9.173 3H6.828a1 1 0 0 0-.707.293l-.828.828A3 3 0 0 1 3.172 5H2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+              <path fill-rule="evenodd" d="M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+              <path d="M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="admin-profile-container">
+        <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerLink="personal-details" routerLinkActive="tab-active">Personal details</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="organization-permissions" routerLinkActive="tab-active">Organisations & permissions</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="login-security" routerLinkActive="tab-active">Login & Security settings</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="products" routerLinkActive="tab-active">My products</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="activity" routerLinkActive="tab-active">Activity</a></li>
+          </ul>
+        </nav>
+      </section>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>
